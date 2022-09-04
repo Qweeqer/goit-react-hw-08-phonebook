@@ -39,14 +39,11 @@
 //   );
 // };
 import * as React from 'react';
-// import css from './ContactList.module.css';
-import './ContactList.module.css';
 import { useSelector } from 'react-redux/es/exports';
 import {
   useGetContactsQuery,
   useDeleteContactMutation,
 } from 'services/contactsAPI';
-import { Section, H2 } from './ContactList.styled';
 
 function ContactList() {
   const { data } = useGetContactsQuery();
@@ -65,31 +62,25 @@ function ContactList() {
   };
 
   return (
-    <>
-      <Section className="contacts">
-        <H2 className="contacts__title">Contacts</H2>
-        <ul className="contacts">
-          {data &&
-            getFilteredContacts().map(({ name, number, id }) => {
-              return (
-                <li key={id} className="contacts__item">
-                  <p>
-                    {name} : {number}
-                  </p>
-                  <button
-                    type="button"
-                    className="contacts__del-btn"
-                    onClick={() => deleteContact(id)}
-                    disabled={isFetching}
-                  >
-                    Delete
-                  </button>
-                </li>
-              );
-            })}
-        </ul>
-      </Section>
-    </>
+    <ul className="contacts">
+      {data &&
+        getFilteredContacts().map(({ name, number, id }) => {
+          return (
+            <li key={id} className="contacts__item">
+              <p>
+                {name} : {number}
+              </p>
+              <button
+                type="button"
+                onClick={() => deleteContact(id)}
+                disabled={isFetching}
+              >
+                Delete
+              </button>
+            </li>
+          );
+        })}
+    </ul>
   );
 }
 
