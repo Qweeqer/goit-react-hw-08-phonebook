@@ -10,15 +10,23 @@ export const SharedLayout = () => {
       <Container>
         <Header>
           <nav>
-            <NavLinkSt to="/">Home</NavLinkSt>
+            <NavLinkSt to="/">
+              <button>Home</button>
+            </NavLinkSt>
             {isLoggedIn ? (
               <>
-                <NavLinkSt to="/contacts">Contacts</NavLinkSt>
+                <NavLinkSt to="/contacts">
+                  <button>Contacts</button>
+                </NavLinkSt>
               </>
             ) : (
               <>
-                <NavLinkSt to="/register">Registration</NavLinkSt>
-                <NavLinkSt to="/login">Log in </NavLinkSt>
+                <NavLinkSt to="/register">
+                  <button>Registration</button>
+                </NavLinkSt>
+                <NavLinkSt to="/login">
+                  <button>Log in</button>{' '}
+                </NavLinkSt>
               </>
             )}
           </nav>
