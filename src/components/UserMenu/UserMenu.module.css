@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 24px;
+  color: #0c40eb;
+}
+.link:hover {
+  text-shadow: 0 0 3px blue;
+  transition: text-shadow 300ms ease;
+}
+
+.active {
+  border-bottom: 3px solid;
+  color: #c51fee;
+}
