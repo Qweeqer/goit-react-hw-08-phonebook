@@ -20,7 +20,10 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import WithLoading from './PrivateRouteComponent';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getLastUser } from '../redux/authSlice';
+import { useEffect } from 'react';
 
 const Register = lazy(() => import('../pages/Register/Register'));
 const LogIn = lazy(() => import('../pages/LogIn/LogIn'));
@@ -33,7 +36,13 @@ const RegisterWithLoading = WithLoading(Register);
 const LoginWithLoading = WithLoading(LogIn);
 
 export const App = () => {
+  const dispatch = useDispatch();
   const isLoggedInFromStore = useSelector(state => state.auth.isLoggedIn);
+
+  useEffect(() => {
+    dispatch(getLastUser());
+  }, [dispatch]);
+
   return (
     <Suspense>
       <Routes>
