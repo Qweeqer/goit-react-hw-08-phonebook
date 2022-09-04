@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {
   useFetchContactsQuery,
   useAddContactMutation,
-} from '../../redux/contactsAPI';
+} from '../../services/contactsAPI';
 
 import './ContactForm.module.css';
 
