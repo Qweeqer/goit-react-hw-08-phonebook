@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { logInUser } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
-import { Form, Label, Button } from './Login.styled';
+// import { Form, Label, Button } from './Login.styled';
+import '../../components/App.module.css';
 
 const LogIn = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,10 @@ const LogIn = () => {
 
   return (
     <section>
-      <Form onSubmit={handleSubmit}>
-        <Label>
+      <form onSubmit={handleSubmit}>
+        <label>
           {' '}
-          Email address
+          <h3>Email</h3>
           <input
             type="email"
             name="email"
@@ -35,10 +36,10 @@ const LogIn = () => {
             min-length="6"
             required
           />
-        </Label>
-        <Label>
+        </label>
+        <label>
           {' '}
-          Password
+          <h3>Password</h3>
           <input
             type="password"
             name="password"
@@ -48,9 +49,12 @@ const LogIn = () => {
             min-length="8"
             required
           />
-        </Label>
-        <Button type="submit"> LogIn </Button>
-      </Form>
+        </label>
+        <button className="button" type="submit">
+          {' '}
+          LogIn{' '}
+        </button>
+      </form>
     </section>
   );
 };
