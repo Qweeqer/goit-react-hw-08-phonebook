@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { Container, Header, NavLinkSt } from './SharedLayout.styled';
+import '../App.module.css';
+import '../../components/ContactForm/ContactForm.module.css';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
