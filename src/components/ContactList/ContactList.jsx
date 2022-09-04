@@ -4,7 +4,7 @@ import { getFilter } from '../../redux/filterSlice';
 import {
   useFetchContactsQuery,
   useDeleteContactMutation,
-} from '../../redux/contactsAPI';
+} from '../../services/contactsAPI';
 
 import css from './ContactList.module.css';
 
