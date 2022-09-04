@@ -1,22 +1,50 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser, token } from 'redux/authSlice';
-import { UserWrapperDiv, UserH2, Button } from './UserMenu.styled';
+import { NavLink } from 'react-router-dom';
+import { logoutUser } from 'redux/authSlice';
+
+import s from './UserMenu.module.css';
+
+const getActive = ({ isActive }) => (isActive ? s.active : s.link);
 
 const UserMenu = () => {
-  const userEmail = useSelector(state => state.auth.user.email);
-  const tokenAuth = useSelector(state => state.auth.token);
+  const tokenAuth = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const onClickHandle = () => {
-    token.set(tokenAuth);
     dispatch(logoutUser());
   };
   return (
-    <UserWrapperDiv>
-      <UserH2>{userEmail}</UserH2>
-      <Button className="button" type="button" onClick={onClickHandle}>
-        Logout
-      </Button>
-    </UserWrapperDiv>
+    <nav>
+      <div>
+        <NavLink className={getActive} to="/">
+          Home
+        </NavLink>
+        {tokenAuth.isLoggedIn && (
+          <NavLink className={getActive} to="/contacts" />
+        )}
+      </div>
+      <div>
+        {tokenAuth.isLoggedIn ? (
+          <>
+            <span>
+              Welcome, <span>{tokenAuth.user.name}</span>
+            </span>
+            <button className="button" type="button" onClick={onClickHandle}>
+              Log Out
+            </button>
+          </>
+        ) : (
+          <>
+            <button className={getActive} to="/logInUser">
+              Sign in
+            </button>
+            <button className={getActive} to="/register">
+              Sign up
+            </button>
+          </>
+        )}
+      </div>
+    </nav>
   );
 };
+
 export default UserMenu;
