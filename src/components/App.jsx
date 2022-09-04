@@ -25,6 +25,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getLastUser } from '../redux/authSlice';
 import { useEffect } from 'react';
 
+import './App.module.css';
+
 const Register = lazy(() => import('../pages/Register/Register'));
 const LogIn = lazy(() => import('../pages/LogIn/LogIn'));
 const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
