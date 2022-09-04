@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { registerNewUser } from 'redux/authSlice';
+import { register } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { Form, Label, Button } from '../LogIn/Login.styled';
 
@@ -18,7 +18,7 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(registerNewUser(formFields));
+    dispatch(register(formFields));
   };
 
   return (
