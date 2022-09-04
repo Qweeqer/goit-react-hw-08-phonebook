@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { register } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
-import { Form, Label, Button } from '../LogIn/Login.styled';
+import '../../components/App.module.css';
+// import { Form, Label, Button } from '../LogIn/Login.styled';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -22,50 +23,52 @@ const Register = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Label>
-        Name
+    <section>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
+          placeholder="Name"
           value={formFields.name}
           onChange={handleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </Label>
-      <Label>
-        {' '}
-        Email address
-        <input
-          type="email"
-          name="email"
-          value={formFields.email}
-          onChange={handleChange}
-          title="Please enter valid email address, for example  'example@gmail.com'"
-          min-length="6"
-          required
-        />
-      </Label>
-      <Label>
-        {' '}
-        Password
-        <input
-          type="password"
-          name="password"
-          value={formFields.password}
-          onChange={handleChange}
-          title="Please enter your password. Minimum length 8 symbols"
-          min-length="8"
-          required
-        />
-      </Label>
-      <Button className="button" type="submit">
-        {' '}
-        Register{' '}
-      </Button>
-    </Form>
+        <label>
+          {' '}
+          Email address
+          <input
+            type="email"
+            name="email"
+            placeholder="Email address"
+            value={formFields.email}
+            onChange={handleChange}
+            title="Please enter valid email address, for example  'example@gmail.com'"
+            min-length="6"
+            required
+          />
+        </label>
+        <label>
+          {' '}
+          Password
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formFields.password}
+            onChange={handleChange}
+            title="Please enter your password. Minimum length 8 symbols"
+            min-length="8"
+            required
+          />
+        </label>
+        <button className="button" type="submit">
+          {' '}
+          Register{' '}
+        </button>
+      </form>
+    </section>
   );
 };
 
