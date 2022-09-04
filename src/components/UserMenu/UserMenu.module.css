@@ -13,3 +13,10 @@
   border-bottom: 3px solid;
   color: #c51fee;
 }
+.userWelcome {
+  display: flex;
+}
+.username {
+  font-size: 17px;
+  background-image: linear-gradient(#00d2ff, #928dab);
+}
