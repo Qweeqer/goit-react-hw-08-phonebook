@@ -34,5 +34,5 @@ export const NavLinkSt = styled(NavLink)`
 `;
 
 export const Main = styled.main`
-  background-image: url('./homefon.jpg');
+  background-image: url('../../images/homefon.jpg');
 `;
