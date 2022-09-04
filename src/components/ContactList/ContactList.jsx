@@ -40,12 +40,12 @@
 // };
 import * as React from 'react';
 // import css from './ContactList.module.css';
-import './ContactList.css';
+import './ContactList.module.css';
 import { useSelector } from 'react-redux/es/exports';
 import {
   useGetContactsQuery,
   useDeleteContactMutation,
-} from 'services/contactsApi';
+} from 'services/contactsAPI';
 import { Section, H2 } from './ContactList.styled';
 
 function ContactList() {
@@ -56,8 +56,10 @@ function ContactList() {
 
   const getFilteredContacts = () => {
     if (!data) return;
-    const filteredContactsArray = [...data].filter(contact =>
-      contact.name.toLowerCase().includes(filterValue.toLowerCase())
+    const filteredContactsArray = [...data].filter(
+      contact =>
+        contact.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+        contact.phone.includes(filterValue)
     );
     return filteredContactsArray;
   };
@@ -72,7 +74,7 @@ function ContactList() {
               return (
                 <li key={id} className="contacts__item">
                   <p>
-                    • {name} : {number}
+                    {name} : {number}
                   </p>
                   <button
                     type="button"
