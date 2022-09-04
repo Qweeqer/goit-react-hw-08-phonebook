@@ -59,7 +59,7 @@ function ContactList() {
     const filteredContactsArray = [...data].filter(
       contact =>
         contact.name.toLowerCase().includes(filterValue.toLowerCase()) ||
-        contact.phone.includes(filterValue)
+        contact.number.includes(filterValue)
     );
     return filteredContactsArray;
   };
