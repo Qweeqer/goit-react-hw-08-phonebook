@@ -1,87 +1,115 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createReducer, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const token = {
-  set(token) {
-    axios.defaults.headers.common['Authorization'] = token;
-  },
-  unset() {
-    axios.defaults.headers.common['Authorization'] = '';
-  },
+import message from 'helpers/message';
+
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+
+export const setToken = token => {
+  axios.defaults.headers.common.Authorization = token ? `Bearer ${token}` : '';
 };
 
-export const registerNewUser = createAsyncThunk(
-  'user/registerNewUser',
-  async (data, thunkAPI) => {
+export const register = createAsyncThunk(
+  'user/register',
+  async (credentials, { rejectWithValue }) => {
     try {
-      const responce = await axios({
-        method: 'post',
-        url: 'https://connections-api.herokuapp.com/users/signup',
-        data,
-      });
-      return responce.data;
-    } catch (error) {}
+      const { data } = await axios.post('/users/signup', credentials);
+      setToken(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
 export const logInUser = createAsyncThunk(
   'user/logInUser',
-  async (data, thunkAPI) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const responce = await axios({
-        method: 'post',
-        url: 'https://connections-api.herokuapp.com/users/login',
-        data,
-      });
-      return responce.data;
-    } catch (error) {}
+      const { data } = await axios.post('/users/login', credentials);
+      setToken(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
 export const logoutUser = createAsyncThunk(
   'user/logoutUser',
-  async (_, thunkAPI) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      await axios({
-        method: 'post',
-        url: 'https://connections-api.herokuapp.com/users/logout',
-      });
+      await axios.post('/users/logout', credentials);
+      setToken(null);
     } catch (error) {
-      console.log(error);
+      return rejectWithValue(error);
     }
   }
 );
+
+export const getLastUser = createAsyncThunk('auth/get', async (_, thunkAPI) => {
+  const token = thunkAPI.getState().auth.token;
+
+  if (!token) return thunkAPI.rejectWithValue();
+  setToken(token);
+  try {
+    const { data } = await axios.get('/users/current');
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});
 
 const initialState = {
   user: { name: '', password: '' },
   token: '',
   isLoggedIn: false,
+  isGettingUser: false,
 };
 
-const authSlice = createSlice({
-  name: 'user',
-  initialState,
-  reducers: {},
-  extraReducers: builder => {
-    builder.addCase(registerNewUser.fulfilled, (state, action) => {
-      console.log(action.payload);
-      state = { ...action.payload, isLoggedIn: true };
-      token.set(action.payload.token);
-    });
+const authSlice = createReducer(initialState, {
+  [register.fulfilled]: (state, action) => {
+    state.user = action.payload.user;
+    state.token = action.payload.token;
+    state.isLoggedIn = true;
+  },
 
-    builder.addCase(logInUser.fulfilled, (state, action) => {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      state.isLoggedIn = true;
-      token.set(action.payload.token);
-    });
-    builder.addCase(logoutUser.fulfilled, (state, action) => {
-      state.user = { name: '', password: '' };
-      state.token = '';
-      state.isLoggedIn = false;
-      token.unset();
-    });
+  [register.rejected]: (state, action) => {
+    message.error('Registration error', `${action.payload.message}`, 'Ok');
+  },
+
+  [logInUser.rejected]: (state, action) => {
+    message.error('Login failed', `${action.payload.message}`, 'Ok');
+  },
+
+  [logInUser.fulfilled]: (state, action) => {
+    state.user = action.payload.user;
+    state.token = action.payload.token;
+    state.isLoggedIn = true;
+  },
+  [logoutUser.rejected]: (state, action) => {
+    message.error('Logout failed', `${action.payload.message}`, 'Ok');
+  },
+
+  [logoutUser.fulfilled]: (state, action) => {
+    state.user = { name: null, email: null };
+    state.token = null;
+    state.isLoggedIn = false;
+  },
+
+  [getLastUser.rejected]: (state, action) => {
+    state.isGettingUser = false;
+  },
+
+  [getLastUser.fulfilled]: (state, action) => {
+    state.user = action.payload;
+    state.isLoggedIn = true;
+    state.isGettingUser = false;
+  },
+
+  [getLastUser.pending]: (state, action) => {
+    state.isGettingUser = true;
   },
 });
 
-export default authSlice.reducer;
+export default authSlice;
