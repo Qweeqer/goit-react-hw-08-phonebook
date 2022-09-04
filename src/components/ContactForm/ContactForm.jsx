@@ -68,11 +68,11 @@
 //   );
 // };
 import { useState } from 'react';
-import './ContactForm.css';
+import './ContactForm.module.css';
 import {
   useAddContactMutation,
   useGetContactsQuery,
-} from 'services/contactsApi';
+} from 'services/contactsAPI';
 
 const ContactForm = () => {
   const { data } = useGetContactsQuery();
@@ -97,8 +97,8 @@ const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (data.some(contact => contact.name === formFields.name)) {
-      alert(`${formFields.name} is already in contact list`);
+    if (data.some(contact => contact.number === formFields.number)) {
+      alert(`This phone ${formFields.number} is already in contacts`);
       return;
     }
     addContact(formFields);
