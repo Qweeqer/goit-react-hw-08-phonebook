@@ -33,5 +33,5 @@ export const NavLinkSt = styled(NavLink)`
 `;
 
 export const Main = styled.main`
-  background-image: url('./school-supplies-3033204.jpg');
+  background-image: url('./homefon.jpg');
 `;
