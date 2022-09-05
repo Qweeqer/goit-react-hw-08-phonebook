@@ -1,8 +1,8 @@
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const styles = {
-  width: '350px',
-  svgSize: '100px',
+  width: '200px',
+  svgSize: '50px',
   titleFontSize: '20px',
   buttonFontSize: '20px',
   borderRadius: '10px',
