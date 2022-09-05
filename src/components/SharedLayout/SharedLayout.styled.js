@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
@@ -33,6 +33,4 @@ export const NavLinkSt = styled(NavLink)`
   }
 `;
 
-export const Main = styled.main`
-  background-image: url('../../images/homefon.jpg');
-`;
+
