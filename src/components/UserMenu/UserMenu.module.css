@@ -15,8 +15,13 @@
 }
 .userWelcome {
   display: flex;
+  align-items: center;
 }
 .username {
-  font-size: 17px;
-  background-image: linear-gradient(#00d2ff, #928dab);
+  font-size: 14px;
+  line-height: 1.2;
+}
+button.logOutBtn {
+  width: 109px;
+  height: 30px;
 }
