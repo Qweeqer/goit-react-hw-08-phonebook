@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
@@ -22,7 +22,7 @@ export const Header = styled.header`
 `;
 
 export const NavLinkSt = styled(NavLink)`
-  padding: 8px 16px;
+  padding: 8px 0px;
   border-radius: 4px;
   text-decoration: none;
   color: black;
@@ -32,5 +32,3 @@ export const NavLinkSt = styled(NavLink)`
     background-color: blue;
   }
 `;
-
-
