@@ -8,9 +8,6 @@ section {
   box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
   background-image: linear-gradient(#00d2ff, #928dab);
 }
-/* section.homePage {
-  background-image: url(../images/homefon.jpg);
-} */
 
 h1,
 h2,
@@ -30,9 +27,7 @@ ul {
   margin-bottom: 15px;
   display: flex;
   width: 95%;
-  /* max-width: 571px; */
   flex-direction: column;
-  /* border: groove 6px; */
   border-radius: 5px;
   box-shadow: 0 1px 5px 1px #ffffff;
 }
@@ -40,7 +35,6 @@ li,
 p {
   display: flex;
   width: 99%;
-  /* max-width: 422px; */
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
