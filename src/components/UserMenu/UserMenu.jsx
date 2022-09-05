@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 import { logoutUser } from 'redux/authSlice';
 
 import s from './UserMenu.module.css';
