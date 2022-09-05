@@ -68,6 +68,7 @@ const initialState = {
 };
 
 const authSlice = createReducer(initialState, {
+  // [register.pending]
   [register.fulfilled]: (state, action) => {
     state.user = action.payload.user;
     state.token = action.payload.token;
@@ -101,14 +102,13 @@ const authSlice = createReducer(initialState, {
     state.isGettingUser = false;
   },
 
+  [getLastUser.pending]: (state, action) => {
+    state.isGettingUser = true;
+  },
   [getLastUser.fulfilled]: (state, action) => {
     state.user = action.payload;
     state.isLoggedIn = true;
     state.isGettingUser = false;
-  },
-
-  [getLastUser.pending]: (state, action) => {
-    state.isGettingUser = true;
   },
 });
 
