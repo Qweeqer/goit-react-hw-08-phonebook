@@ -29,7 +29,11 @@ const UserMenu = () => {
                 Welcome, {tokenAuth.user.name}!
               </span>
             </p>
-            <button className="button" type="button" onClick={onClickHandle}>
+            <button
+              className={s.logOutBtn}
+              type="button"
+              onClick={onClickHandle}
+            >
               Log Out
             </button>
           </div>
