@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { register } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
 import '../../components/App.module.css';
+import s from '../../components/ContactForm/ContactForm.module.css';
 import '../../components/ContactForm/ContactForm.module.css';
 
 const Register = () => {
@@ -24,7 +25,7 @@ const Register = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form className={s.registerForm} onSubmit={handleSubmit}>
         <h3>Name</h3>
         <input
           type="text"
