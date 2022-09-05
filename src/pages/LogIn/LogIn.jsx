@@ -52,8 +52,7 @@ const LogIn = () => {
           />
         </label>
         <button className="button" type="submit">
-          {' '}
-          LogIn{' '}
+          Log in
         </button>
       </form>
     </section>

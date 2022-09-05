@@ -1,5 +1,6 @@
 import { H1, P } from './Home.styled';
 import '../../components/ContactForm/ContactForm.module.css';
+import { NavLinkSt } from '../../components/SharedLayout/SharedLayout.styled';
 import s from './Home.module.css';
 
 export default function Home() {
@@ -8,6 +9,13 @@ export default function Home() {
       <form>
         <H1>Welcome to Phonebook application</H1>
       </form>
+      <NavLinkSt to="/register">
+        <p className={s.joinBtn}>
+          <span>Click!</span>
+          <span>JOIN TODAY</span>
+        </p>
+        {/* <button className={s.joinBtn}>JOIN TODAY</button> */}
+      </NavLinkSt>
       <form>
         <P className="appDescription">
           PhoneBook app is an easy to use contact manager app that gives you

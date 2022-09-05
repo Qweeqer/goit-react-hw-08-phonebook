@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const H1 = styled.h1`
   font-size: 60px;
   text-aligh: center;
-  // padding-top: 50px;
+  margin-bottom: 0px;
   color: #ffffff;
   text-shadow: 0 1px 0 #cac8c8, 0 1px 0 #c7c5c5, 0 1px 0 #bbbaba,
     0 1px 0 #b7b6b6, 0 1px 0 #a9a6a6, 0 6px 1px rgb(0 0 0 / 20%),
