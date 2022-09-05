@@ -29,13 +29,6 @@ const UserMenu = () => {
                 Welcome, {tokenAuth.user.name}!
               </span>
             </p>
-            <button
-              className={s.logOutBtn}
-              type="button"
-              onClick={onClickHandle}
-            >
-              Log Out
-            </button>
           </div>
         ) : (
           <>
@@ -48,6 +41,9 @@ const UserMenu = () => {
           </>
         )}
       </div>
+      <button className={s.logOutBtn} type="button" onClick={onClickHandle}>
+        Log Out
+      </button>
     </nav>
   );
 };

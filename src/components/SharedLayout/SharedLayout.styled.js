@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   gap: 12px;
   padding: 8px 10px;
   margin-bottom: 16px;
@@ -18,6 +18,7 @@ export const Header = styled.header`
   // border-bottom: 1px solid black;
   > nav {
     display: flex;
+    align-items: center;
   }
 `;
 
