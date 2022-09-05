@@ -14,7 +14,6 @@ export default function Home() {
           <span>Click!</span>
           <span>JOIN TODAY</span>
         </p>
-        {/* <button className={s.joinBtn}>JOIN TODAY</button> */}
       </NavLinkSt>
       <form>
         <P className="appDescription">
