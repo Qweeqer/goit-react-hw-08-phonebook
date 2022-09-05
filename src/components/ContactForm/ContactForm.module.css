@@ -18,7 +18,11 @@ input {
   border-radius: 10px;
   box-shadow: inset 2px 2px 5px 0px lightgrey;
 }
-
+input.inputLogIn {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
 button {
   /* margin-left: 10px; */
   width: 80px;
