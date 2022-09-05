@@ -21,7 +21,7 @@
 // };
 import React from 'react';
 import './Filter.module.css';
-import '../App.module.css';
+// import '../../components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { changeFilterValue } from '../../redux/contactsSlice';
 
