@@ -65,50 +65,70 @@ const initialState = {
   token: '',
   isLoggedIn: false,
   isGettingUser: false,
+  isFetching: false,
+  error: null,
 };
 
 const authSlice = createReducer(initialState, {
-  // [register.pending]
+  [register.pending]: state => {
+    state.isFetching = true;
+    state.error = null;
+  },
   [register.fulfilled]: (state, action) => {
     state.user = action.payload.user;
     state.token = action.payload.token;
+    state.isFetching = false;
     state.isLoggedIn = true;
   },
 
   [register.rejected]: (state, action) => {
     message.error('Registration error', `${action.payload.message}`, 'Ok');
+    state.isFetching = false;
   },
 
-  [logInUser.rejected]: (state, action) => {
-    message.error('Login failed', `${action.payload.message}`, 'Ok');
+  [logInUser.pending]: state => {
+    state.isFetching = true;
+    state.error = null;
   },
-
   [logInUser.fulfilled]: (state, action) => {
     state.user = action.payload.user;
     state.token = action.payload.token;
     state.isLoggedIn = true;
+    state.isFetching = false;
   },
-  [logoutUser.rejected]: (state, action) => {
-    message.error('Logout failed', `${action.payload.message}`, 'Ok');
+  [logInUser.rejected]: (state, action) => {
+    message.error('Login failed', `${action.payload.message}`, 'Ok');
+    state.isFetching = false;
   },
 
+  [logoutUser.pending]: state => {
+    state.isFetching = true;
+    state.error = null;
+  },
   [logoutUser.fulfilled]: (state, action) => {
     state.user = { name: null, email: null };
     state.token = null;
     state.isLoggedIn = false;
   },
-
-  [getLastUser.rejected]: (state, action) => {
-    state.isGettingUser = false;
+  [logoutUser.rejected]: (state, action) => {
+    message.error('Logout failed', `${action.payload.message}`, 'Ok');
+    state.isFetching = false;
   },
 
-  [getLastUser.pending]: (state, action) => {
+  [getLastUser.pending]: state => {
     state.isGettingUser = true;
+    state.isFetching = true;
+    state.error = null;
   },
   [getLastUser.fulfilled]: (state, action) => {
     state.user = action.payload;
     state.isLoggedIn = true;
     state.isGettingUser = false;
+    state.isFetching = false;
+  },
+  [getLastUser.rejected]: state => {
+    state.isGettingUser = false;
+    state.isFetching = false;
   },
 });
 
