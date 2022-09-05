@@ -19,30 +19,9 @@ section.homePage {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
-
-  /* width: 100%;
-  animation: pulsing 2s linear 3; */
 }
-/* @keyframes pulsing {
-  0% {
-    transform: scale(0.6, 0.6);
-  }
 
-  25% {
-    transform: scale(0.8, 0.8);
-  }
-  50% {
-    transform: scale(1.2, 1.2);
-  }
-  75% {
-    transform: scale(0.8, 0.8);
-  }
-
-  100% {
-    transform: scale(0.6, 0.6);
-  }
-} */
-/* 12 */
+/* 12   https://codepen.io/yuhomyan/pen/OJMejWJ*/
 button:hover.joinBtn {
   background-color: none;
 }
