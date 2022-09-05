@@ -12,9 +12,9 @@ export const SharedLayout = () => {
       <Container>
         <Header>
           <nav>
-            <NavLinkSt to="/">
+            {/* <NavLinkSt to="/">
               <button>Home</button>
-            </NavLinkSt>
+            </NavLinkSt> */}
             {isLoggedIn ? (
               <>
                 <NavLinkSt to="/contacts">
@@ -23,6 +23,9 @@ export const SharedLayout = () => {
               </>
             ) : (
               <>
+                <NavLinkSt to="/">
+                  <button>Home</button>
+                </NavLinkSt>
                 <NavLinkSt to="/register">
                   <button>Registration</button>
                 </NavLinkSt>
