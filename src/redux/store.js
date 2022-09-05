@@ -1,7 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authSlice from './authSlice';
-import { contactsApi } from '../services/contactsAPI';
-import filterValueReducer from './contactsSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
@@ -13,14 +10,16 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
 import storage from 'redux-persist/lib/storage';
+
+import authSlice from './authSlice';
+import { contactsApi } from '../services/contactsAPI';
+import filterValueReducer from './contactsSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
   blacklist: ['user'],
-  // blacklist: ['filter'],
 };
 
 const persistedReducer = persistReducer(persistConfig, authSlice);
