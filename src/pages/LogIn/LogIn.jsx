@@ -29,6 +29,7 @@ const LogIn = () => {
           {' '}
           <h3>Email</h3>
           <input
+            className={s.inputLogIn}
             type="email"
             name="email"
             value={formFields.email}
@@ -42,6 +43,7 @@ const LogIn = () => {
           {' '}
           <h3>Password</h3>
           <input
+            className={s.inputLogIn}
             type="password"
             name="password"
             value={formFields.password}
