@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/312.8777ca3b.chunk.css","mappings":"AAAA,6BACE,+FAA+C,CAC/C,2BAA4B,CAC5B,yBACF","sources":["pages/Home/Home.module.css"],"sourcesContent":["section.homePage {\n  background-image: url(../../images/homefon.jpg);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n}\n"],"names":[],"sourceRoot":""}
