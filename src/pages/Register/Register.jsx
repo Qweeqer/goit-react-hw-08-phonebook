@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { register } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
+
+import { register } from 'redux/authSlice';
+
 import '../../components/App.module.css';
 import s from '../../components/ContactForm/ContactForm.module.css';
 import '../../components/ContactForm/ContactForm.module.css';
