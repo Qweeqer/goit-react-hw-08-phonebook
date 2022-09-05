@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { logInUser } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
 // import { Form, Label, Button } from './Login.styled';
+import s from '../../components/ContactForm/ContactForm.module.css';
 import '../../components/App.module.css';
 
 const LogIn = () => {
@@ -23,7 +24,7 @@ const LogIn = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form className={s.logInForm} onSubmit={handleSubmit}>
         <label>
           {' '}
           <h3>Email</h3>
