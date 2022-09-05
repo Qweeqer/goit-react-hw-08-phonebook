@@ -24,6 +24,4 @@ export const P = styled.p`
     0 0px 5px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 10%),
     0 3px 2px rgb(0 0 0 / 10%), 0 5px 2px rgb(0 0 0 / 20%),
     0 5px 5px rgb(0 0 0 / 30%), 0 5px 5px rgb(0 0 0 / 10%);
-
-  background-image: url(../../images/homefon.jpg);
 `;
