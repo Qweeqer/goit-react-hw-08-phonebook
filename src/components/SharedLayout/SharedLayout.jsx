@@ -1,6 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
+
+import UserMenu from 'components/UserMenu/UserMenu';
+
 import { Container, Header, NavLinkSt } from './SharedLayout.styled';
 import '../App.module.css';
 import '../../components/ContactForm/ContactForm.module.css';
@@ -12,9 +14,6 @@ export const SharedLayout = () => {
       <Container>
         <Header>
           <nav>
-            {/* <NavLinkSt to="/">
-              <button>Home</button>
-            </NavLinkSt> */}
             {isLoggedIn ? (
               <>
                 <NavLinkSt to="/contacts">
