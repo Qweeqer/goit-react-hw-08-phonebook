@@ -25,8 +25,9 @@ const UserMenu = () => {
         {tokenAuth.isLoggedIn ? (
           <div className={s.userWelcome}>
             <p>
-              Welcome,{' '}
-              <span className={s.username}>{tokenAuth.user.name}!</span>
+              <span className={s.username}>
+                Welcome, {tokenAuth.user.name}!
+              </span>
             </p>
             <button className="button" type="button" onClick={onClickHandle}>
               Log Out
