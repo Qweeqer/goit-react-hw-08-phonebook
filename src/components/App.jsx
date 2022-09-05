@@ -25,6 +25,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getLastUser } from '../redux/authSlice';
 import { useEffect } from 'react';
 
+// import s from './App.module.css';
 import './App.module.css';
 
 const Register = lazy(() => import('../pages/Register/Register'));
