@@ -10,13 +10,14 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 12px;
   padding: 8px 10px;
   margin-bottom: 16px;
   border-bottom: groove 4px;
   // border-bottom: 1px solid black;
   > nav {
+    gap: 40px;
     display: flex;
     align-items: center;
   }
