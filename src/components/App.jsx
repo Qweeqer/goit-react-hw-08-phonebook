@@ -1,31 +1,12 @@
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { ContactList } from './ContactList/ContactList';
-// import { Filter } from './Filter/Filter';
-// import './App.module.css';
-
-// export const App = () => {
-//   return (
-//     <section>
-//       <div>
-//         <h1>Phonebook</h1>
-//         <ContactForm />
-//         <h2>Contacts</h2>
-//         <Filter />
-//         <ContactList />
-//       </div>
-//     </section>
-//   );
-// };
 import { lazy, Suspense } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout/SharedLayout';
-import WithLoading from './PrivateRouteComponent';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { SharedLayout } from './SharedLayout/SharedLayout';
+import WithLoading from './PrivateRouteComponent';
 import { getLastUser } from '../redux/authSlice';
-import { useEffect } from 'react';
 
-// import s from './App.module.css';
 import './App.module.css';
 
 const Register = lazy(() => import('../pages/Register/Register'));
